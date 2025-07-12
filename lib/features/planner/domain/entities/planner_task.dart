@@ -29,7 +29,7 @@ class PlannerTask extends HiveObject {
          date.year,
          date.month,
          date.day,
-       ); // 🔒 Normalized to avoid time-based bugs
+       ); 
 
   /// Returns a copy of this task with optional field overrides
   PlannerTask copyWith({
