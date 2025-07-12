@@ -20,7 +20,6 @@ class NoteNotifier extends StateNotifier<List<Note>> {
     final box = Hive.box<Note>('notes');
     await box.put(note.id, note);
 
-    // Re-fetch entire list to avoid duplication or mismatch
     await _loadNotes();
   }
 
@@ -36,7 +35,6 @@ class NoteNotifier extends StateNotifier<List<Note>> {
     await _loadNotes();
   }
 
-  // Optional helper for quick inline editing (if used later)
   Future<void> updateNoteContent(String id, String newContent) async {
     final box = Hive.box<Note>('notes');
     final note = box.get(id);
